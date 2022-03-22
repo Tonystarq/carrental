@@ -1,0 +1,95 @@
+{% include 'AGENT/base_template.html' %}
+{% load static %}}
+{% block content %}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Book</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Book Car</a></li>
+            </ol>
+        </div>
+        
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Book Car</h4>
+                    </div>
+                    {% include 'includes/messages.html' %}
+                    <div class="btn btn-primary">
+
+                    </div>
+                    
+                       
+                    <div class="card-body">
+                        <form action="{% url 'bookcar1' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row form-material">
+                                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input"name="date1" data-target="#datetimepicker1"required>
+                                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                  </div>
+                                <div class="col-xl-3 col-xxl-6 col-md-6 mb-3">
+                                    <label class="form-label">Vechicle Model No.</label>
+                                    <input type= "text" class="form-control" id="VehicleModel"  name="VehicleModel" value="{% for i in VehicleNumber %}{{i.VehicleModel}}{% endfor %}" readonly>
+                                </div>
+                                <input type="text" class="form-control" name = "vehicleid" value = "{% for i  in VehicleNumber  %} {{i.id}}{% endfor %}" hidden  >
+                                
+                                <div class="col-xl-3 col-xxl-6 col-md-6 mb -3">
+                                    <label class="form-label">Vehicle Number</label>
+                                    <input type="text" class="form-control" id="VehicleNumber" name="VehicleNumber" value= "{% for i in VehicleNumber %}{{i.VehicleNumber}}{% endfor %} " readonly>
+                                </div>
+                               
+                                <div class="col-xl-3 col-xxl-6 col-md-6 mb-3">
+                                    <label class="form-label">Seating Capacity</label>
+                                    <input type="number" class="form-control"  id="SeatingCapacity" name="SeatingCapacity" value="{% for i in VehicleNumber %}{{i.SeatingCapacity}}{% endfor %}" readonly>
+                                </div>
+                                <div class="col-xl-3 col-xxl-6 col-md-6">
+                                    <label class="form-label">Rent Per Day</label>
+                                    <input type="number" class="form-control"  id="RentPerDay"  name="RentPerDay" value="{% for i in VehicleNumber %}{{i.RentPerDay}}{% endfor %}"readonly>
+                                </div>
+                                
+                                </div>
+                                <div class="col-xl-3 col-xxl-6 col-md-6">
+                                    <label class="form-label">Cust ID</label>
+                                    <input type="text" class="form-control" name="ref_id" id="ref_id" value = "{{code}}" readonly >
+                                </div>
+                                
+                                  <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input"  name="date2" data-target="#datetimepicker2" required/>
+                                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                  </div>
+                              
+                               
+                                
+                                
+                            </div>
+                            <div class="col-xl-3 col-xxl-6 col-md-6">
+                                <button type="submit" class="btn btn-primary">Rent</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+      $("#datetimepicker1").datetimepicker();
+    });
+    $(function () {
+        $("#datetimepicker2").datetimepicker();
+      });
+  </script>
+
+    {% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base1.html" %}
+{% block content %}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">UPDATE</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">UPDATE Car</a></li>
+            </ol>
+        </div>
+        
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Update Car</h4>
+                    </div>
+                    {% include 'includes/messages.html' %}
+                    <div class="btn btn-primary">
+
+                    </div>
+                    
+                       
+                    <div class="card-body">
+                        <form action="{% url 'UpdateCar' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row form-material">
+                           
+                                <div class="col-xl-3 col-xxl-6 col-md-6 mb-3">
+                                    <label class="form-label">Vechicle Model No.</label>
+                                    <input type= "text" class="form-control" id="VehicleModel"  name="VehicleModel" value="{% for i in VehicleNumber %}{{i.VehicleModel}}{% endfor %}">
+                                </div>
+                                <input type="text" class="form-control" name = "vehicleid" value = "{% for i  in VehicleNumber  %} {{i.id}}{% endfor %}" hidden  >
+                                
+                                <div class="col-xl-3 col-xxl-6 col-md-6 mb -3">
+                                    <label class="form-label">Vehicle Number</label>
+                                    <input type="text" class="form-control" id="VehicleNumber" name="VehicleNumber" value= "{% for i in VehicleNumber %}{{i.VehicleNumber}}{% endfor %} " readonly>
+                                </div>
+                               
+                                <div class="col-xl-3 col-xxl-6 col-md-6 mb-3">
+                                    <label class="form-label">Seating Capacity</label>
+                                    <input type="number" class="form-control"  id="SeatingCapacity" name="SeatingCapacity" value="{% for i in VehicleNumber %}{{i.SeatingCapacity}}{% endfor %}">
+                                </div>
+                                <div class="col-xl-3 col-xxl-6 col-md-6">
+                                    <label class="form-label">Rent Per Day</label>
+                                    <input type="number" class="form-control"  id="RentPerDay"  name="RentPerDay" value="{% for i in VehicleNumber %}{{i.RentPerDay}}{% endfor %}">
+                                </div>
+                                
+                               
+                                
+                                
+                            </div>
+                            <div class="col-xl-3 col-xxl-6 col-md-6">
+                                <button type="submit" class="btn btn-primary">UPDATE</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}
