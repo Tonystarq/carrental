@@ -17,10 +17,9 @@
                         <div class="search_bar dropdown">
           <div class="dropdown-menu p-0 m-0">
             <form>
-              <div class="input-group">
-                <h4><strong>Welcome to Car Rental</strong>&nbsp;<span> {{user.first_name}} {{user.last_name}} </span></h4>
-               
-             </div>	
+                <div class="input-group">
+                    <h4><a href="{% url 'Agent_Home' %}"class="btn btn-primary rounded light me-3">Welcome to Car Rental</a>&nbsp;<span> {{user.first_name}} {{user.last_name}} </span></h4>
+                 </div>	
             </form>
           </div>
         </div>

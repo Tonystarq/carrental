@@ -16,29 +16,7 @@ import csv
 import datetime
 
 
-def export_csv(request):
-    response = HttpResponse(content_type = 'text/csv')
-    
-    response['Content-Disposition'] = 'attachment; filename= Booking Details'+ str(datetime.datetime.now())+'.csv'
-    writer = csv.writer(response)
-    writer.writerow(['Name', 'Father Name', 'Plot No', 'Amount', 'Payment Mode', 'Mobile No', 'Ref Id', 'Date', 'Remarks'])
-    approve_plot = BookCar.objects.all()
-    for approve in approve_plot:
-        print(approve)
-    
-        writer.writerow(
-                    [approve.name, 
-				approve.father_name, 
-				approve.plot_number, 
-				approve.Payable_amout, 
-				approve.payment_mode, 
-				approve.mobile_no, 
-				approve.ref_id, 
-				approve.joinig_date, 
-				approve.remarks])
-           
 
-    return response
 
 
 def BASE(request):
@@ -167,7 +145,9 @@ def dosuperAgent(request):
 
     return render(request, 'register-user.html',context)
 
-
+def viewcars(request):
+    VehicleNumber = AddCar.objects.all()
+    return render(request,'HOD/viewcars.html',{'VehicleNumber':VehicleNumber})    
 def doAgent(request):
 
     if request.method == "POST":
@@ -274,7 +254,7 @@ def doLogin1(request):
 
 def doLogout(request):
     logout(request)
-    return redirect("login")
+    return redirect("prelogin")
 
 
 
@@ -349,28 +329,6 @@ def registeruserr(request):
 
 
 
-def  cancelledplote(request):
-    return render(request, 'HOD/cancelledplote.html')
-
-def  blockassociatelist(request):
-    return render(request, 'HOD/blockassociatelist.html')
-def  tokenslip(request):
-    return render(request, 'HOD/tokenslip.html')
-def  pendingPlot(request):
-    return render(request, 'HOD/pendingplot.html')
-def  updatekyc(request):
-    return render(request, 'HOD/updatekyc.html')
-
-def  installmentdetail(request):
-    Installment_data = BookCar.objects.all()
-    context = {
-        'Installment' : Installment_data
-    }
-    return render(request, 'HOD\installmentdetail.html', context)
-def  supportsystem(request):
-    return render(request, 'HOD/supportsystem.html')
-def  userdashboard(request):
-    return render(request, 'HOD/installmentdetail.html')
 
 
 

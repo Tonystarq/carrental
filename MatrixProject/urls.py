@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.db import router
 from django.urls import path,include
 from django.conf import settings
-from django.conf.urls.static import static, url, serve
+from django.conf.urls.static import static
 
 
 from matrixapp import views
@@ -26,10 +26,10 @@ urlpatterns = [
     
     path('admin/', admin.site.urls),
      path('admin/', admin.site.urls),
-    path('', include("Home.urls")),
+    # path('', include("Home.urls")),
 
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    # url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    # url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     
     
     path('base1', views.BASE1, name='base1') ,
@@ -41,6 +41,7 @@ urlpatterns = [
     path('doLogin', views.doLogin, name='doLogin'),
     path('doLogin1', views.doLogin1, name='doLogin1'),
     path('Logout', views.doLogout,name="logout"),
+    path('viewcars', views.viewcars,name="viewcars"),
 
     #profile update 
 

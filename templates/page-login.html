@@ -9,14 +9,14 @@
 	<meta name="author" content="DexignZone">
 	<meta name="robots" content="index, follow">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="SSR:  Property Admin Dashboard  ">
-	<meta property="og:title" content="SSR :  Property Admin Dashboard ">
-	<meta property="og:description" content="SSR :  Property Admin Dashboard ">
+	<meta name="description" content="Car Rental ">
+	<meta property="og:title" content="Car Rental">
+	<meta property="og:description" content="Car Rental">
 	{% comment %} <meta property="og:image" content="https://omah.dexignzone.com/xhtml/social-image.png"> {% endcomment %}
 	<meta name="format-detection" content="telephone=no">
-    <title>Car REntal</title>
+    <title>Car Rental</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images\favicon.png">
+    {% comment %} <link rel="icon" type="image/png" sizes="16x16" href="images\favicon.png"> {% endcomment %}
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 </head>
@@ -31,6 +31,9 @@
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
+                                    <div class="text-center mb-3">
+										<a  ><img width=200 height=200 src="{% static 'images/1.webp' %}" alt=""></a>
+									</div>
 									
                                     <h4 class="text-center mb-4">Sign in As Agency</h4>
                                     {% for message in messages %}
@@ -55,30 +58,13 @@
                                             <input type="password" class="form-control"  name="password">
                                         </div>
                                         
-                                        {% comment %} <div class="form-row d-flex justify-content-between mt-4 mb-2">
-                                            <div class="form-group">
-                                               <div class="form-check custom-checkbox ms-1">
-													<input type="checkbox" class="form-check-input" id="basic_checkbox_1">
-													<label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
-												</div>
-                                            </div>
-                                            <div class="form-group">
-                                                <a href="page-forgot-password.html">Forgot Password?</a>
-                                            </div>
-                                        </div> {% endcomment %}
+                                        
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block">Sign Me In</button>
                                         </div>
                                     </form>
-                                     <div class="new-account mt-3">
-                                        <p>Don't have an account? <a class="text-primary" href="{% url 'signup_admin' %}">Sign up as Car Dealer</a></p>
-                                    </div> 
-                                    <div class="new-account mt-3">
-                                        <p>Already have an account? <a class="text-primary" href="{% url 'login1' %}">Sign me as Customer</a></p>
-                                    </div> 
-                                    <div class="new-account mt-3">
-                                        <p>Don't have an account? <a class="text-primary" href="{% url 'registeruserr' %}">Sign up as Customere</a></p>
-                                    </div> 
+                                   
+                                     
                                     
                                 </div>
                             </div>

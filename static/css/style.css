@@ -293,6 +293,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     scroll-behavior: smooth; } }
 
 body {
+  background: url(../images/car.jpg); 
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);

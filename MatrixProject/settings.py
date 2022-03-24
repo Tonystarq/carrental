@@ -35,8 +35,8 @@ SECRET_KEY = 'django-insecure-!bnud5t+a^@f@njspwl66)$5()g&lram@2m8p3m+jmq*nax$a=
 DEBUG = False
 # DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','carrental007.herokuapp.com']
-# ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ['127.0.0.1','carrental007.herokuapp.com']
+ALLOWED_HOSTS = ["*"]
 # ALLOWED_HOSTS = ["ssrbroke.herokuapp.com", "localhost"]
 
 MEDIA_URL="/media/"
@@ -67,7 +67,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
